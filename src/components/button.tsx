@@ -31,7 +31,6 @@ const ButtonDiv = styled.div`
     -webkit-tap-highlight-color : transparent;
     transition: 100ms;
     user-select: none;
-    box-shadow: 0px 8px 16px rgba(0, 103, 249, 0.16);
 
     &:active {
         background-color: ${(props:{disabled:boolean}) => props.disabled ? '#CDD5E1' : '#0059d4'};
@@ -52,6 +51,7 @@ const SubButton = styled.div`
     align-items: center;
     justify-content: center;
     gap: 4px;
+    font-size: 14px;
 
     svg {
         margin-bottom: -2px;
