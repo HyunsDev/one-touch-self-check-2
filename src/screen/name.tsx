@@ -59,7 +59,7 @@ export default function Name(props:any) {
     const next = () => {
         if (filter(value) === '200') {
             localStorage.setItem('name', value)
-            navigate('/birth')
+            navigate('/birth', { replace: true })
         }
     }
 

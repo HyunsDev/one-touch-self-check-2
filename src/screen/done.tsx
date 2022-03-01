@@ -27,7 +27,7 @@ export default function Done(props:any) {
                 disabled={true}
                 subButton={{
                     label: '내 정보 수정하기',
-                    onClick: () => navigate('/name')
+                    onClick: () => navigate('/name', { replace: true })
                 }}
             />
         </Page>  

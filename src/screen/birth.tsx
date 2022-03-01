@@ -101,7 +101,7 @@ export default function Birth(props:any) {
     const next = () => {
         if (filter(value).status === true) {
             localStorage.setItem('birth', value)
-            navigate('/password')
+            navigate('/password', { replace: true })
         }
     }
 
@@ -125,7 +125,7 @@ export default function Birth(props:any) {
                 disabled={btnStatus.unable}
                 subButton={{
                     label: '이름 변경하기',
-                    onClick: () => navigate('/name')
+                    onClick: () => navigate('/name', { replace: true })
                 }}
             />
         </Page>  

@@ -75,7 +75,7 @@ export default function Password(props:any) {
     const next = () => {
         if (filter(value).status === true) {
             localStorage.setItem('password', '0307')
-            navigate('/loading')
+            navigate('/loading', { replace: true })
         }
     }
 
@@ -99,7 +99,7 @@ export default function Password(props:any) {
                 disabled={btnStatus.unable}
                 subButton={{
                     label: '생년월일 변경하기',
-                    onClick: () => navigate('/birth')
+                    onClick: () => navigate('/birth', { replace: true })
                 }}
             />
         </Page>  

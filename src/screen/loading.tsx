@@ -26,11 +26,11 @@ export default function Password(props:any) {
 
     useEffect(() => {
         if (!localStorage.getItem('name')) {
-            navigate('/name')
+            navigate('/name', { replace: true })
         } else if (!localStorage.getItem('birth')) {
-            navigate('/birth')
+            navigate('/birth', { replace: true })
         } else if (!localStorage.getItem('password')) {
-            navigate('/password')
+            navigate('/password', { replace: true })
         } else {
             ;(async () => {
                 try {
@@ -40,7 +40,7 @@ export default function Password(props:any) {
                         password: localStorage.getItem("password")
                     })
                     localStorage.setItem("isSet", 'true')
-                    navigate('/done')
+                    navigate('/done', { replace: true })
     
                 } catch (err:any) {
                     localStorage.setItem("isSet", 'false')
@@ -51,42 +51,42 @@ export default function Password(props:any) {
                             case "need_more_info":
                                 toast.error("필수 정보가 누락되었어요", { theme: "colored" })
                                 localStorage.clear()
-                                navigate('/name')
+                                navigate('/name', { replace: true })
                                 break
     
                             case "first_login_failed":
                                 toast.error("이름과 생년월일을 확인하세요", { theme: "colored" })
                                 localStorage.clear()
-                                navigate('/name')
+                                navigate('/name', { replace: true })
                                 break
     
                             case "second_login_failed":
                                 toast.error("비밀번호를 확인하세요", { theme: "colored" })
                                 localStorage.setItem("password", "")
-                                navigate('/password')
+                                navigate('/password', { replace: true })
                                 break
                             
                             case "wait_please":
                                 toast.error(`${err.response.data.minutes}분후에 재시도해주세요`, { theme: "colored" })
-                                navigate('/password')
+                                navigate('/password', { replace: true })
                                 break
     
                             case "wrong_password":
                                 toast.error("비밀번호를 확인하세요", { theme: "colored" })
-                                navigate('/password')
+                                navigate('/password', { replace: true })
                                 break
     
                             default:
                                 toast.error("자가진단을 하지 못했어요. 다시 시도해주세요", { theme: "colored" })
-                                navigate('/password')
+                                navigate('/password', { replace: true })
                                 break
                         }
                     } else if (err.request) {
                         toast.error("서버 연결에 실패했어요. 다시 시도해주세요", { theme: "colored" })
-                        navigate('/password')
+                        navigate('/password', { replace: true })
                     } else {
                         toast.error("문제가 생겼어요. 이후에도 문제가 반복되면 박현우(3512)에게 알려주세요.", { theme: "colored" })
-                        navigate('/password')
+                        navigate('/password', { replace: true })
                     }
                 }
             })()

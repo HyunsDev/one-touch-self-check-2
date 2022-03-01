@@ -14,7 +14,7 @@ export default function Main(props:any) {
 
     useEffect(() => {
         if (localStorage.getItem('isSet') === 'true' && localStorage.getItem('name') && localStorage.getItem('birth') && localStorage.getItem('password')) {
-            navigate('/loading')
+            navigate('/loading', { replace: true })
         }
     }, [navigate])
 
@@ -27,7 +27,7 @@ export default function Main(props:any) {
             />
             <Button
                 label="30초만에 등록하기"
-                onClick={() => navigate('/name')}
+                onClick={() => navigate('/name', { replace: true })}
                 subText='원터치 자가진단은 박현우(3512)가 만들었어요!'
             />
         </Page>  
