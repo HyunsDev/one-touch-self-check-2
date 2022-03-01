@@ -74,7 +74,7 @@ export default function Password(props:any) {
 
     const next = () => {
         if (filter(value).status === true) {
-            localStorage.setItem('password', '0307')
+            localStorage.setItem('password', value)
             navigate('/loading', { replace: true })
         }
     }
